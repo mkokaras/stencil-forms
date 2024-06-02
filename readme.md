@@ -93,7 +93,6 @@ export class AppInput {
 
 			         this.internals.setValidity({ valueMissing }, this.errorMessage);
 
-			         forceUpdate(thi
             }
           />
           {this.internals.validationMessage && <span class="error">{this.internals.validationMessage}</span>}
