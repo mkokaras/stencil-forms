@@ -102,9 +102,10 @@ export class AppInput {
 
 **API**
 
+Summed up functions used in the above input example:
+
 ```ts
 /*Set value for the form assosciated component, NOT the form */
-
 this.internals.setFormValue(value);
 
 /* Set the validity and the error message to appear when invalid */
