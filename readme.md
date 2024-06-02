@@ -44,10 +44,10 @@ With this flag, the component is “connected” with the nearest `<form>` paren
 
 The below implementation, is to demonstrate the common Element Internals functionality. For more details & a working example, see `app-input.tsx`
 
-Consider this dummy form associated input. The key details of this are:
+Consider this dummy form associated input (see snippet below). The key details of this are:
 
 1. The setup to a formAssociated component.
-2. We use `this.internals.setFormValue(this.initialValue)` to setup the initial value and also `onInput`. Form-associated components have nothing to do with the `<input>` so if we set `<input value={this.initialValue}>` will have NO impact in the form. Each time we want to set a new value, we must use `setFormValue()`
+2. We use `this.internals.setFormValue(this.initialValue)` to setup the initial value for the element and also `onInput`. Form-associated components have nothing to do with the `<input>` so if we set `<input value={this.initialValue}>` will have NO impact in the form. Each time we want to set a new value, we must use `setFormValue()`. IMPORTANT: A thing that tricked me in the beginning was the `setFormValue()`. `setFormValue()` is used to set a value for the input NOT the whole form!.
 3. We use `this.internals.setValidity({ valueMissing }, this.errorMessage)` to set up an form control as valid or not. The keys that it can take are the same as [Validity State](https://developer.mozilla.org/en-US/docs/Web/API/ValidityState). This means, that we are in control of how what is valid or not. E.g. `<input type=number>` cannot take patterns as validations. We can set up a custom regex, validate it, and provide `patternMismatch:true | false` on the `setValidity()`
 4. We use `this.internals.validationMessage` which returns empty if the input is valid or the error message (which was provided in our case in `setValidity()`). Note, in the actual code you will see I use `forceUpdate(this)` to trigger a re-render. This is important because Stencil **cannot** know if the validity changed so if you do not do that, then the view will not be updated.
 
@@ -98,6 +98,20 @@ export class AppInput {
     );
   }
 }
+```
+
+** API **
+
+```ts
+/*Set value for the form assosciated component, NOT the form */
+
+this.internals.setFormValue(value);
+
+/* Set the validity and the error message to appear when invalid */
+this.internals.setValidity(validityState, message);
+
+/* Get validation message. Empty if its valid */
+this.internals.validationMessage;
 ```
 
 ### In the form
