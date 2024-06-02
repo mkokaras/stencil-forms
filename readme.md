@@ -1,114 +1,153 @@
-[![Built With Stencil](https://img.shields.io/badge/-Built%20With%20Stencil-16161d.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI%2BCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI%2BCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU%2BCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MjQuNywzNzMuOWMwLDM3LjYtNTUuMSw2OC42LTkyLjcsNjguNkgxODAuNGMtMzcuOSwwLTkyLjctMzAuNy05Mi43LTY4LjZ2LTMuNmgzMzYuOVYzNzMuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQyNC43LDI5Mi4xSDE4MC40Yy0zNy42LDAtOTIuNy0zMS05Mi43LTY4LjZ2LTMuNkgzMzJjMzcuNiwwLDkyLjcsMzEsOTIuNyw2OC42VjI5Mi4xeiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDI0LjcsMTQxLjdIODcuN3YtMy42YzAtMzcuNiw1NC44LTY4LjYsOTIuNy02OC42SDMzMmMzNy45LDAsOTIuNywzMC43LDkyLjcsNjguNlYxNDEuN3oiLz4KPC9zdmc%2BCg%3D%3D&colorA=16161d&style=flat-square)](https://stenciljs.com)
+# Form Associated Components
 
-# Stencil Component Starter
+## Introduction
 
-This is a starter project for building a standalone Web Component using Stencil.
+Form associated components in not a Stencil thing its native Javascript, Stencil just utilises this API to bring form associated components.
 
-Stencil is also great for building entire apps. For that, use the [stencil-app-starter](https://github.com/ionic-team/stencil-app-starter) instead.
+A few useful resources regarding how those work, together with its available API can be found at:
 
-# Stencil
+- Stencil Docs: [https://stenciljs.com/docs/form-associated](https://stenciljs.com/docs/form-associated)
+- MDN Docs: [https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals)
+- [Web.dev](http://Web.dev) docs: [https://web.dev/articles/more-capable-form-controls](https://web.dev/articles/more-capable-form-controls)
 
-Stencil is a compiler for building fast web apps using Web Components.
+The thought process behind those, is that you are limited by the input element and what it can offer, when building forms. E.g. if you wanted to create a custom element, like e.g. a custom toggle on/off (slider), you need to somehow relate it to an input. Now with the available API provided, this is solved and you can “connect” this with the form element.
 
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than runtime tool. Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
+## How to use in Stencil
 
-Stencil components are just Web Components, so they work in any major framework or with no framework at all.
+You can see the code for an working example, but in here I will provide the core things that I usually ended up to use & the common gotchas. This is a brief explanation of the code.
 
-## Getting Started
+### In the input
 
-To start building a new web component using Stencil, clone this repo to a new directory:
+The usual setup for a form associated component is :
 
-```bash
-git clone https://github.com/ionic-team/stencil-component-starter.git my-component
-cd my-component
-git remote rm origin
-```
-
-and run:
-
-```bash
-npm install
-npm start
-```
-
-To build the component for production, run:
-
-```bash
-npm run build
-```
-
-To run the unit tests for the components, run:
-
-```bash
-npm test
-```
-
-Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
-
-## Naming Components
-
-When creating new component tags, we recommend _not_ using `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component!
-
-Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Ionic-generated web components use the prefix `ion`.
-
-## Using this component
-
-There are two strategies we recommend for using web components built with Stencil.
-
-The first step for all two of these strategies is to [publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
-
-You can read more about these different approaches in the [Stencil docs](https://stenciljs.com/docs/publishing).
-
-### Lazy Loading
-
-If your Stencil project is built with the [`dist`](https://stenciljs.com/docs/distribution) output target, you can import a small bootstrap script that registers all components and allows you to load individual component scripts lazily.
-
-For example, given your Stencil project namespace is called `my-design-system`, to use `my-component` on any website, inject this into your HTML:
-
-```html
-<script type="module" src="https://unpkg.com/my-design-system"></script>
-<!--
-To avoid unpkg.com redirects to the actual file, you can also directly import:
-https://unpkg.com/foobar-design-system@0.0.1/dist/foobar-design-system/foobar-design-system.esm.js
--->
-<my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
-```
-
-This will only load the necessary scripts needed to render `<my-component />`. Once more components of this package are used, they will automatically be loaded lazily.
-
-You can also import the script as part of your `node_modules` in your applications entry file:
+1. You need to specify it as form associated using `formAssociated:true`
+2. You need to provide a name prop with reflect:true so Stencil knows the name of it inside the form (like the name of the input on a classic form)
+3. Add `@AttachInternals() internals: ElementInternals` to have access to the API, so you can set value, set validity, get validity etc (see [Docs](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals))
 
 ```tsx
-import 'foobar-design-system/dist/foobar-design-system/foobar-design-system.esm.js';
+@Component({
+  tag: 'app-input',
+  styleUrl: 'app-input.css',
+  shadow: true,
+  formAssociated: true,
+})
+export class AppInput {
+  @AttachInternals() internals: ElementInternals;
+
+  @Prop({ reflect: true }) name: string;
+}
 ```
 
-Check out this [Live Demo](https://stackblitz.com/edit/vitejs-vite-y6v26a?file=src%2Fmain.tsx).
+With this flag, the component is “connected” with the nearest `<form>` parent.
 
-### Standalone
+**Common Usage**
 
-If you are using a Stencil component library with `dist-custom-elements`, we recommend importing Stencil components individually in those files where they are needed.
+The below implementation, is to demonstrate the common Element Internals functionality. For more details & a working example, see `app-input.tsx`
 
-To export Stencil components as standalone components make sure you have the [`dist-custom-elements`](https://stenciljs.com/docs/custom-elements) output target defined in your `stencil.config.ts`.
+Consider this dummy form associated input. The key details of this are:
 
-For example, given you'd like to use `<my-component />` as part of a React component, you can import the component directly via:
+1. The setup to a formAssociated component.
+2. We use `this.internals.setFormValue(this.initialValue)` to setup the initial value and also `onInput`. Form-associated components have nothing to do with the `<input>` so if we set `<input value={this.initialValue}>` will have NO impact in the form. Each time we want to set a new value, we must use `setFormValue()`
+3. We use `this.internals.setValidity({ valueMissing }, this.errorMessage)` to set up an form control as valid or not. The keys that it can take are the same as [Validity State](https://developer.mozilla.org/en-US/docs/Web/API/ValidityState). This means, that we are in control of how what is valid or not. E.g. `<input type=number>` cannot take patterns as validations. We can set up a custom regex, validate it, and provide `patternMismatch:true | false` on the `setValidity()`
+4. We use `this.internals.validationMessage` which returns empty if the input is valid or the error message (which was provided in our case in `setValidity()`). Note, in the actual code you will see I use `forceUpdate(this)` to trigger a re-render. This is important because Stencil **cannot** know if the validity changed so if you do not do that, then the view will not be updated.
 
 ```tsx
-import 'foobar-design-system/my-component';
+@Component({
+  tag: 'app-input',
+  styleUrl: 'app-input.css',
+  shadow: true,
+  formAssociated: true,
+})
+export class AppInput {
+  private el: HTMLInputElement;
 
-function App() {
-  return (
-    <>
-      <div>
-        <my-component
-          first="Stencil"
-          last="'Don't call me a framework' JS"
-        ></my-component>
-      </div>
-    </>
-  );
+  @AttachInternals() internals: ElementInternals;
+
+  @Prop({ reflect: true }) name: string;
+  @Prop() initialValue: string = '';
+  @Prop() required: boolean = false;
+  @Prop() errorMessage: string = '';
+
+  componentWillLoad() {
+		 this.internals.setFormValue(this.initialValue);
+
+		 const valueMissing = this.required && !this.initialValue;
+
+     this.internals.setValidity({ valueMissing }, this.errorMessage);
+  }
+
+  render() {
+    return (
+      <Host>
+        <label htmlFor={this.name}>Label</label>
+          <input
+            ref={el => (this.el = el)}
+            type={this.type}
+            value={this.initialValue}
+            name={this.name}
+            id={this.name}
+            onInput={(e) => {
+	             this.internals.setFormValue(e.value);
+
+		           const valueMissing = this.required && !this.el.value;
+
+			         this.internals.setValidity({ valueMissing }, this.errorMessage);
+
+			         forceUpdate(thi
+            }
+          />
+          {this.internals.validationMessage && <span class="error">{this.internals.validationMessage}</span>}
+      </Host>
+    );
+  }
 }
 
-export default App;
 ```
 
-Check out this [Live Demo](https://stackblitz.com/edit/vitejs-vite-b6zuds?file=src%2FApp.tsx).
+### In the form
+
+A form does not have to do a lot to handle a form associated component. A form does **NOT** have access to the ElementInternals (I mean directly).
+
+When submitting you just need to get your data results and convert it (see `getFormObject()` method in `app-form.tsx`)
+
+Also, you can use the classic [HTMLFormElement API](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement) to do stuff like getting the validity of the whole form, which might be useful as we see in the below snippet.
+
+**Common Usage**
+
+- `onSubmit()` we have access to the form element (or we can use `ref` property to get it). As a result, we get the form object where key is the name (prop name we pass in the input), and value is the form value (the value we set for each element using `setFormValue()`).
+- We use `this.getFormEl().checkValidity()` to get the validity of the whole form in order to enable/disable the submit button.
+- `onInput()` we have to force a re-render in order to re-evaluate the validity so the view is updated with the appropriate state of the button (valid or not).
+
+```tsx
+import { Component, Host, forceUpdate, h } from '@stencil/core';
+
+@Component({
+  tag: 'app-form',
+  styleUrl: 'app-form.css',
+  shadow: true,
+})
+export class AppForm {
+  render() {
+    return (
+      <Host>
+        <h2>Enter your details:</h2>
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+
+            console.log(this.getFormObject(e.target));
+          }}
+          onInput={() => {
+            forceUpdate(this);
+          }}
+        >
+          <app-input label="Username *" name="username" required type="text" errorMessage="Username is required"></app-input>
+          <app-input label="Password *" name="password" required type="password" errorMessage="Password is required"></app-input>
+          <app-input label="Email" name="email" type="email" required errorMessage="Invalid email"></app-input>
+          <app-button text="Submit" type="submit" disabled={!this.getFormEl().checkValidity()}></app-button>
+        </form>
+      </Host>
+    );
+  }
+}
+```

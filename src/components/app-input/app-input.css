@@ -55,7 +55,7 @@ input:focus-visible {
   border: 1px solid var(--clr-red);
 }
 
-span[id='error-validation'] {
+.error {
   font: var(--font-body-lg);
   color: var(--clr-red);
   padding: 0.8rem 1.6rem;

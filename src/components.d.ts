@@ -24,9 +24,13 @@ export namespace Components {
     }
     interface AppInput {
         /**
-          * Error messages matching the validity state
+          * The error message
          */
         "errorMessage": string;
+        /**
+          * The initial value of the input
+         */
+        "initialValue": string;
         /**
           * The label of the input
          */
@@ -43,10 +47,6 @@ export namespace Components {
           * Type of input e.g. text,email,password etc
          */
         "type": string;
-        /**
-          * The initial value of the input
-         */
-        "value": string;
     }
 }
 declare global {
@@ -93,9 +93,13 @@ declare namespace LocalJSX {
     }
     interface AppInput {
         /**
-          * Error messages matching the validity state
+          * The error message
          */
         "errorMessage"?: string;
+        /**
+          * The initial value of the input
+         */
+        "initialValue"?: string;
         /**
           * The label of the input
          */
@@ -112,10 +116,6 @@ declare namespace LocalJSX {
           * Type of input e.g. text,email,password etc
          */
         "type"?: string;
-        /**
-          * The initial value of the input
-         */
-        "value"?: string;
     }
     interface IntrinsicElements {
         "app-button": AppButton;
