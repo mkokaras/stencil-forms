@@ -100,7 +100,7 @@ export class AppInput {
 }
 ```
 
-** API **
+**API**
 
 ```ts
 /*Set value for the form assosciated component, NOT the form */
