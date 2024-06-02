@@ -69,38 +69,35 @@ export class AppInput {
   @Prop() errorMessage: string = '';
 
   componentWillLoad() {
-		 this.internals.setFormValue(this.initialValue);
+    this.internals.setFormValue(this.initialValue);
 
-		 const valueMissing = this.required && !this.initialValue;
+    const valueMissing = this.required && !this.initialValue;
 
-     this.internals.setValidity({ valueMissing }, this.errorMessage);
+    this.internals.setValidity({ valueMissing }, this.errorMessage);
   }
 
   render() {
     return (
       <Host>
         <label htmlFor={this.name}>Label</label>
-          <input
-            ref={el => (this.el = el)}
-            type={this.type}
-            value={this.initialValue}
-            name={this.name}
-            id={this.name}
-            onInput={(e) => {
-	             this.internals.setFormValue(e.value);
+        <input
+          ref={el => (this.el = el)}
+          value={this.initialValue}
+          name={this.name}
+          id={this.name}
+          onInput={e => {
+            this.internals.setFormValue(e.value);
 
-		           const valueMissing = this.required && !this.el.value;
+            const valueMissing = this.required && !this.el.value;
 
-			         this.internals.setValidity({ valueMissing }, this.errorMessage);
-
-            }
-          />
-          {this.internals.validationMessage && <span class="error">{this.internals.validationMessage}</span>}
+            this.internals.setValidity({ valueMissing }, this.errorMessage);
+          }}
+        />
+        {this.internals.validationMessage && <span class="error">{this.internals.validationMessage}</span>}
       </Host>
     );
   }
 }
-
 ```
 
 ### In the form
