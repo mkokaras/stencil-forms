@@ -1,0 +1,35 @@
+:root {
+  --clr-purple: #635fc7;
+  --clr-purple-light: #a8a4ff;
+  --clr-purple-light-rgb: 168, 164, 255;
+  --clr-red: #ea5555;
+  --clr-red-light: #ff9898;
+
+  --clr-grey-dark-3: #000112;
+  --clr-grey-dark-2: #20212c;
+  --clr-grey-dark-1: #2b2c37;
+  --clr-grey: #3e3f4e;
+  --clr-grey-rgb: 62, 63, 78;
+  --clr-grey-light-1: #828fa3;
+  --clr-grey-light-1-rgb: 130, 143, 163;
+  --clr-grey-light-2: #e4ebfa;
+  --clr-grey-light-3: #f4f7fd;
+  --clr-grey-light-4: #ffffff;
+
+  --font-heading-xl: 700 2.4rem/3rem 'Plus Jakarta Sans', sans-serif;
+  --font-heading-lg: 700 1.8rem/2.3rem 'Plus Jakarta Sans', sans-serif;
+  --font-heading-md: 700 1.5rem/1.9rem 'Plus Jakarta Sans', sans-serif;
+  --font-heading-sm: 700 1.2rem/1.5rem 'Plus Jakarta Sans', sans-serif;
+
+  --font-body-lg: 500 1.3rem/2.3rem 'Plus Jakarta Sans', sans-serif;
+  --font-body-md: 700 1.2rem/1.5rem 'Plus Jakarta Sans', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font: var(--font-body-lg);
+  min-height: 100vh;
+}

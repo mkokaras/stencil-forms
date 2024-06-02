@@ -1,0 +1,25 @@
+:host {
+  display: grid;
+  gap: 2.4rem;
+  padding: 3.2rem;
+  width: 60rem;
+
+  border-radius: 12px;
+
+  box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font: var(--font-heading-lg);
+}
+
+form {
+  display: grid;
+  gap: 2.4rem;
+}

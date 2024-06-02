@@ -6,56 +6,130 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface AppButton {
         /**
-          * The first name
+          * Button is disabled
          */
-        "first": string;
+        "disabled": boolean;
         /**
-          * The last name
+          * The text of the button
          */
-        "last": string;
+        "text": string;
         /**
-          * The middle name
+          * The type of the button
          */
-        "middle": string;
+        "type": string;
+    }
+    interface AppForm {
+    }
+    interface AppInput {
+        /**
+          * Error messages matching the validity state
+         */
+        "errorMessage": string;
+        /**
+          * The label of the input
+         */
+        "label": string;
+        /**
+          * This is needed for form associated components. The name of the input will be the name in the form object.
+         */
+        "name": string;
+        /**
+          * Required validator
+         */
+        "required": boolean;
+        /**
+          * Type of input e.g. text,email,password etc
+         */
+        "type": string;
+        /**
+          * The initial value of the input
+         */
+        "value": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLAppButtonElement extends Components.AppButton, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLAppButtonElement: {
+        prototype: HTMLAppButtonElement;
+        new (): HTMLAppButtonElement;
+    };
+    interface HTMLAppFormElement extends Components.AppForm, HTMLStencilElement {
+    }
+    var HTMLAppFormElement: {
+        prototype: HTMLAppFormElement;
+        new (): HTMLAppFormElement;
+    };
+    interface HTMLAppInputElement extends Components.AppInput, HTMLStencilElement {
+    }
+    var HTMLAppInputElement: {
+        prototype: HTMLAppInputElement;
+        new (): HTMLAppInputElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "app-button": HTMLAppButtonElement;
+        "app-form": HTMLAppFormElement;
+        "app-input": HTMLAppInputElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface AppButton {
         /**
-          * The first name
+          * Button is disabled
          */
-        "first"?: string;
+        "disabled"?: boolean;
         /**
-          * The last name
+          * The text of the button
          */
-        "last"?: string;
+        "text"?: string;
         /**
-          * The middle name
+          * The type of the button
          */
-        "middle"?: string;
+        "type"?: string;
+    }
+    interface AppForm {
+    }
+    interface AppInput {
+        /**
+          * Error messages matching the validity state
+         */
+        "errorMessage"?: string;
+        /**
+          * The label of the input
+         */
+        "label"?: string;
+        /**
+          * This is needed for form associated components. The name of the input will be the name in the form object.
+         */
+        "name"?: string;
+        /**
+          * Required validator
+         */
+        "required"?: boolean;
+        /**
+          * Type of input e.g. text,email,password etc
+         */
+        "type"?: string;
+        /**
+          * The initial value of the input
+         */
+        "value"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "app-button": AppButton;
+        "app-form": AppForm;
+        "app-input": AppInput;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "app-button": LocalJSX.AppButton & JSXBase.HTMLAttributes<HTMLAppButtonElement>;
+            "app-form": LocalJSX.AppForm & JSXBase.HTMLAttributes<HTMLAppFormElement>;
+            "app-input": LocalJSX.AppInput & JSXBase.HTMLAttributes<HTMLAppInputElement>;
         }
     }
 }

@@ -1,0 +1,36 @@
+:host {
+  display: block;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transition: all 0.3s;
+  border: none;
+
+  cursor: pointer;
+
+  border-radius: 24px;
+  font: var(--font-heading-md);
+  background-color: var(--clr-purple);
+  color: var(--clr-grey-light-4);
+  padding: 1.2rem 2.4rem;
+}
+
+.btn:hover {
+  background-color: var(--clr-purple-light);
+  color: var(--clr-grey-light-4);
+}
+
+.btn:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}

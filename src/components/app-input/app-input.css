@@ -1,0 +1,69 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+label {
+  font: var(--font-body-md);
+  color: var(--clr-grey-light-1);
+}
+
+label.hide-label {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.container {
+  position: relative;
+}
+
+input {
+  font: var(--font-body-lg);
+  color: var(--clr-grey-dark-3);
+  border-radius: 4px;
+  padding: 0.8rem 1.6rem;
+  border: 1px solid rgba(var(--clr-grey-light-1-rgb), 0.25);
+  background-color: transparent;
+
+  display: inline-block;
+  width: 100%;
+}
+
+input::placeholder {
+  color: var(--clr-grey-light-1);
+}
+
+input:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.invalid {
+  border: 1px solid var(--clr-red);
+}
+
+span[id='error-validation'] {
+  font: var(--font-body-lg);
+  color: var(--clr-red);
+  padding: 0.8rem 1.6rem;
+
+  display: inline-block;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
