@@ -12,6 +12,11 @@ A few useful resources regarding how those work, together with its available API
 
 The thought process behind those, is that you are limited by the input element and what it can offer, when building forms. E.g. if you wanted to create a custom element, like e.g. a custom toggle on/off (slider), you need to somehow relate it to an input. Now with the available API provided, this is solved and you can “connect” this with the form element.
 
+
+### Get Started
+- npm install
+- npm run start
+
 ## How to use in Stencil
 
 You can see the code for an working example, but in here I will provide the core things that I usually ended up to use & the common gotchas. This is a brief explanation of the code.
