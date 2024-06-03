@@ -14,8 +14,11 @@ The thought process behind those, is that you are limited by the input element a
 
 
 ### Get Started
+
+```
 - npm install
 - npm run start
+```
 
 ## How to use in Stencil
 
